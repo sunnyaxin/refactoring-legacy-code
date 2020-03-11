@@ -20,6 +20,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class WalletTransactionTest {
+
     private static RedisDistributedLock lock;
 
     @BeforeAll
