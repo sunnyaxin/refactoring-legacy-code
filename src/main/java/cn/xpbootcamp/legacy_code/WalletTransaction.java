@@ -16,14 +16,7 @@ public class WalletTransaction {
     private STATUS status;
 
     public WalletTransaction(String preAssignedId, Long buyerId, Long sellerId) {
-        if (preAssignedId != null && !preAssignedId.isEmpty()) {
-            this.id = preAssignedId;
-        } else {
-            this.id = IdGenerator.generateTransactionId();
-        }
-        if (!this.id.startsWith("t_")) {
-            this.id = "t_" + preAssignedId;
-        }
+        id = generateIdBy(preAssignedId);
         this.buyerId = buyerId;
         this.sellerId = sellerId;
         this.status = STATUS.TO_BE_EXECUTED;
@@ -65,4 +58,15 @@ public class WalletTransaction {
         }
     }
 
+    private String generateIdBy(String preAssignedId) {
+        if (preAssignedId != null && !preAssignedId.isEmpty()) {
+            this.id = preAssignedId;
+        } else {
+            this.id = IdGenerator.generateTransactionId();
+        }
+        if (!this.id.startsWith("t_")) {
+            this.id = "t_" + preAssignedId;
+        }
+        return id;
+    }
 }
