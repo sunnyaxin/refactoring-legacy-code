@@ -13,7 +13,7 @@ public class WalletTransaction {
     private Long buyerId;
     private Long sellerId;
     private Long createdTimestamp;
-    private Double amount;
+    private double amount;
     private STATUS status;
 
     public WalletTransaction(String preAssignedId, Long buyerId, Long sellerId) {
